@@ -1,4 +1,7 @@
 .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 300px;
   border: 2px solid #6f3a14;
   border-radius: 1.5rem;
@@ -22,15 +25,21 @@
 }
 .ice-cream-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
-  grid-template-rows: repeat(5, 350px);
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
-  padding: 10px;
+  padding-top: 10px;
 }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .img {
   height: 10rem;
   width: 10rem;
-  margin-left: 4rem;
 }
 :is(button, .button1) {
   width: 100px;
@@ -42,4 +51,8 @@
   background-color: chocolate;
   border: none;
   color: white;
+}
+.regular,
+.vegan {
+  align-content: center;
 }

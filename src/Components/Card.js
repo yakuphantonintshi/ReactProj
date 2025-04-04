@@ -14,10 +14,12 @@ function IceCreamCard({ name, flavour, image, price, button, button2 }) {
       <h3>{name}</h3>
       <img className="img" src={image} alt={name} />
       <p>R{price}</p>
-      <button className="view-details">{button2}</button>
-      <button className="add-to-cart" onClick={handleAddToCart}>
-        {button}
-      </button>
+      <div>
+        <button className="view-details">{button2}</button>
+        <button className="add-to-cart" onClick={handleAddToCart}>
+          {button}
+        </button>
+      </div>
     </div>
   );
 }
