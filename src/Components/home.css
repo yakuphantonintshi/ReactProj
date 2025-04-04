@@ -58,7 +58,7 @@ h1 {
 :is(.cone, .cream) {
   padding-left: 5rem;
 }
-button {
+.products {
   height: 60px;
   width: 250px;
   margin-left: 3rem;
@@ -67,4 +67,5 @@ button {
   margin-top: 2rem;
   border: none;
   color: beige;
+  cursor: pointer;
 }

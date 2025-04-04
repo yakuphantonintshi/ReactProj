@@ -1,27 +1,25 @@
 import React from "react";
 import Card from "./Card.css";
+import { useCart } from "../Components/CartContext";
 
-function CardComp() {
+function IceCreamCard({ name, flavour, image, price, button, button2 }) {
+  const { addToCart } = useCart(); // Get addToCart method from context
+
+  const handleAddToCart = () => {
+    const item = { name, flavour, image, price };
+    addToCart(item);
+  };
   return (
     <div className="card">
-    <div className="card-content">
-      <h3>Card Title</h3>
-      <p>Some description</p>
-      <img
-        src="https://cdn-prd-02.pnp.co.za/sys-master/images/h99/h0d/11522140405790/silo-product-image-v2-16Nov2024-180106-6009198001091-Straight_on-268217-1743_515Wx515H"
-        alt="vanilla"
-        className="vanilla"
-      />
-      <div className="myButtons">
-        <a>
-          <button className="button1">View Product</button>
-        </a>
-        <button className="button1">Add To Cart</button>
-      </div>
-    
-    </div>
+      <h3>{name}</h3>
+      <img className="img" src={image} alt={name} />
+      <p>R{price}</p>
+      <button className="view-details">{button2}</button>
+      <button className="add-to-cart" onClick={handleAddToCart}>
+        {button}
+      </button>
     </div>
   );
 }
 
-export default CardComp;
+export default IceCreamCard;

@@ -11,7 +11,7 @@ function Homepage() {
         <h1 className="and"> &</h1>
         <h1 className="cream">Cream</h1>
         <a href="./products">
-          <button>View Products</button>
+          <button className="products">View Products</button>
         </a>
       </div>
     </header>
