@@ -20,7 +20,15 @@ function Nav() {
           <Link to="/products">Products</Link>
         </li>
         <li>
-          <Link to="/checkout">Checkout ({totalItemCount})</Link>{" "}
+        <div className="checkout-link-wrapper">
+        <Link to="/checkout">Checkout</Link>
+        {totalItemCount > 0 && (
+          <span className="cart-popup">
+            {totalItemCount}
+          </span>
+        )}
+      </div>
+          
         </li>
         <li>
           <Link to="/contact">Contact Us</Link>

@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card.css";
-import { useCart } from "../Components/CartContext";
+import { useCart } from "./CartContext";
 
 function IceCreamCard({ name, flavour, image, price, button, button2 }) {
   const { addToCart } = useCart(); // Get addToCart method from context
@@ -15,8 +15,8 @@ function IceCreamCard({ name, flavour, image, price, button, button2 }) {
       <img className="img" src={image} alt={name} />
       <p>R{price}</p>
       <div>
-        <button className="view-details">{button2}</button>
-        <button className="add-to-cart" onClick={handleAddToCart}>
+        <button className="view-details" onClick={handleAddToCart}>{button2}</button>
+        <button className="add-to-cart" >
           {button}
         </button>
       </div>
