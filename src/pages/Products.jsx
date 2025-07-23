@@ -1,30 +1,68 @@
-import Card from "../Components/Card"
+import React, { useState } from "react";
+import Card from "../Components/Card";
 import iceCreamData from "../IceCreamData.js";
-import creams from "../Components/Card.css"
+import "../Components/Card.css";
 
 function Products() {
-    return (
-      <div className="icecreambuttons">
+  const [filter, setFilter] = useState("all"); // 'all', 'vegan', 'regular'
+  const [selectedIceCream, setSelectedIceCream] = useState(null); // for modal
 
-        <a><button className="regular">Regular Icecream</button></a>
-        <a><button className="vegan">Vegan Icecream</button></a>
-     
+  const filteredIceCreams = iceCreamData.filter((item) => {
+    if (filter === "vegan") return item.vegan;
+    if (filter === "regular") return !item.vegan;
+    return true;
+  });
+
+  const closeModal = () => setSelectedIceCream(null);
+
+  return (
+    <div>
+      <div className="icecreambuttons">
+        <button className="regular" onClick={() => setFilter("regular")}>
+          Regular Ice Cream
+        </button>
+        <button className="vegan" onClick={() => setFilter("vegan")}>
+          Vegan Ice Cream
+        </button>
+        {/* <button className="all" onClick={() => setFilter("all")}>
+          Show All
+        </button> */}
+      </div>
+
       <div className="wrapper">
         <div className="ice-cream-container">
-          {iceCreamData.map((iceCream) => (
+          {filteredIceCreams.map((iceCream) => (
             <Card
               key={iceCream.id}
               name={iceCream.name}
               flavour={iceCream.flavour}
               image={iceCream.image}
               price={iceCream.price}
-              button={iceCream.button}
-              button2={iceCream.button2}
+              onViewMore={() => setSelectedIceCream(iceCream)} // open modal
             />
           ))}
         </div>
       </div>
-      </div>
-    );
-  }
+
+      {/* Modal */}
+      {selectedIceCream && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <h2>{selectedIceCream.name}</h2>
+            <img
+              src={selectedIceCream.image}
+              alt={selectedIceCream.name}
+              style={{ width: "100px", height: "auto", marginBottom: "10px" }}
+            />
+            <p>{selectedIceCream.description}</p>
+            <p><strong>Calories:</strong> {selectedIceCream.calories} kcal</p>
+            <p><strong>Energy:</strong> {selectedIceCream.energy} kJ</p>
+            <button onClick={closeModal} className="close-modal">Close</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default Products;

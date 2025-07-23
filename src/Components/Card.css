@@ -54,5 +54,8 @@
 }
 .regular,
 .vegan {
-  align-content: center;
+  width: 250px;
+  height: 40px;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }

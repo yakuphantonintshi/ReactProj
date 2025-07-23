@@ -1,16 +1,13 @@
 import React, { createContext, useState, useContext } from "react";
 
-// Create Context
 const CartContext = createContext();
 
-// Custom hook to use CartContext
 export const useCart = () => {
   return useContext(CartContext);
 };
 
-// CartProvider to wrap around the app and provide context
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]); // Initial empty cart state
+  const [cart, setCart] = useState([]); 
 
   const addToCart = (item) => {
     setCart((prevCart) => {
@@ -29,16 +26,13 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  // ✅ Add this function to remove an item by index
   const removeFromCart = (indexToRemove) => {
     setCart((prevCart) => {
       const updatedCart = [...prevCart];
   
-      // Decrease quantity
       if (updatedCart[indexToRemove].quantity > 1) {
         updatedCart[indexToRemove].quantity -= 1;
       } else {
-        // Remove item if quantity becomes 0
         updatedCart.splice(indexToRemove, 1);
       }
   
