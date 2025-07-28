@@ -64,9 +64,9 @@ function Checkout() {
                     <button onClick={() => addToCart(item)} className="add">
                       <i className="bi bi-plus-square-fill"></i>
                     </button>
-                    <button onClick={() => handleViewDetails(item)} className="view-details">
+                    {/* <button onClick={() => handleViewDetails(item)} className="view-details">
                       View Details
-                    </button>
+                    </button> */}
                   </td>
                 </tr>
               ))}
@@ -78,7 +78,7 @@ function Checkout() {
       )}
 
       {/* MODAL */}
-      {selectedItem && (
+      {/* {selectedItem && (
         <div className="modal-overlay">
           <div className="modal">
             <h2>{selectedItem.name}</h2>
@@ -93,7 +93,7 @@ function Checkout() {
             <button onClick={closeModal} className="close-modal">Close</button>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

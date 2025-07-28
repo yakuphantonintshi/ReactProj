@@ -38,6 +38,8 @@ function Products() {
               flavour={iceCream.flavour}
               image={iceCream.image}
               price={iceCream.price}
+              description={iceCream.description}
+              calories={iceCream.calories}
               onViewMore={() => setSelectedIceCream(iceCream)} // open modal
             />
           ))}
