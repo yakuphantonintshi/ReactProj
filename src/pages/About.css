@@ -31,7 +31,7 @@
   }
   
   .about-text h2 {
-    font-size: 2rem;
+    font-size: 1rem;
     margin-bottom: 1rem;
     color: black;
     text-decoration: underline;
@@ -43,4 +43,8 @@
     color: black;
     font-weight: bold;
   }
-  
+  .lickandlove{
+    font-size: 1.8rem;
+    color: beige;
+    text-shadow: 5px 5px 5px #824711;
+  }
