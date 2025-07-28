@@ -5,6 +5,7 @@ import Home from "./pages/Homepage.jsx";
 import HomeCss from "./Components/home.css";
 import Nav from "./Components/Nav.jsx";
 import Checkout from "./Components/Checkout.js";
+import Contact from "./pages/Contact.jsx";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/products" element={<Products />} />
         <Route exact path="/checkout" element={<Checkout />} />
+        <Route exact path="/contact" element={<Contact />} />
         {/* <Route exact path="/contact" element={<Contact />} /> */}
       </Routes>
     </Router>

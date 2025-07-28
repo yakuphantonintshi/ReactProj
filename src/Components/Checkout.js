@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useCart } from "./CartContext.jsx";
-import CSS from "../Components/Checkout.css";
+import "./Checkout.css"
 
 function Checkout() {
   const { cart, addToCart, removeFromCart } = useCart();
   const [selectedItem, setSelectedItem] = useState(null);
+  const [showMessage, setShowMessage] = useState(false);
 
   const totalPrice = cart
     .reduce((total, item) => total + item.price * item.quantity, 0)
@@ -19,6 +20,15 @@ function Checkout() {
   const closeModal = () => {
     setSelectedItem(null);
   };
+
+  const handleProceed = () => {
+    setShowMessage(true);
+  
+    setTimeout(() => {
+      window.location.href = "/products";
+    }, 3000);
+  };
+  
 
   return (
     <div className="checkout">
@@ -64,9 +74,6 @@ function Checkout() {
                     <button onClick={() => addToCart(item)} className="add">
                       <i className="bi bi-plus-square-fill"></i>
                     </button>
-                    {/* <button onClick={() => handleViewDetails(item)} className="view-details">
-                      View Details
-                    </button> */}
                   </td>
                 </tr>
               ))}
@@ -74,26 +81,18 @@ function Checkout() {
           </table>
 
           <h4>Total Price: R{totalPrice}</h4>
+
+          <button onClick={handleProceed} className="proceed-button">
+            Proceed to Checkout
+          </button>
         </div>
       )}
 
-      {/* MODAL */}
-      {/* {selectedItem && (
-        <div className="modal-overlay">
-          <div className="modal">
-            <h2>{selectedItem.name}</h2>
-            <img
-              src={selectedItem.image}
-              alt={selectedItem.name}
-              style={{ width: "100px", height: "auto", marginBottom: "10px" }}
-            />
-            <p>{selectedItem.description || "No description available."}</p>
-            <p><strong>Calories:</strong> {selectedItem.calories} kcal</p>
-            <p><strong>Energy:</strong> {selectedItem.energy} kJ</p>
-            <button onClick={closeModal} className="close-modal">Close</button>
-          </div>
+      {showMessage && (
+        <div className="centered-message">
+          <p>✅ Thank you for your purchase</p>
         </div>
-      )} */}
+      )}
     </div>
   );
 }
